@@ -11,12 +11,16 @@
     "hardhat": "ts-node --project tsconfig.hardhat.json node_modules/hardhat/internal/cli/cli.js"
   },
   "dependencies": {
+    "@metamask/sdk": "^0.20.3",
+    "@metamask/sdk-react": "^0.20.2",
     "hardhat": "^2.22.4",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "viem": "^2.12.5"
   },
   "devDependencies": {
+    "@react-native-async-storage/async-storage": "^1.23.1",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^20",
     "@types/react": "^18",
