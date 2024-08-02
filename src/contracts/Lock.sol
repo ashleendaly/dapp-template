@@ -16,11 +16,4 @@ contract Lock {
         unlockTime = _unlockTime;
         owner = payable(msg.sender);
     }
-
-    function withdraw() public {
-        require(block.timestamp >= unlockTime, "You can't withdraw yet");
-        require(msg.sender == owner, "You aren't the owner");
-        emit Withdrawal(address(this).balance, block.timestamp);
-        owner.transfer(address(this).balance);
-    }
 }
