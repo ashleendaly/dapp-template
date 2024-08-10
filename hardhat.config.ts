@@ -1,5 +1,7 @@
 import type { HardhatUserConfig } from "hardhat/config";
-import 'hardhat-abi-exporter'
+require("@nomicfoundation/hardhat-viem")
+require('hardhat-abi-exporter')
+require("dotenv").config();
 
 interface HardhatUserConfigWithAbiExporter extends HardhatUserConfig {
   abiExporter: {
@@ -12,8 +14,15 @@ interface HardhatUserConfigWithAbiExporter extends HardhatUserConfig {
 
 const config: HardhatUserConfigWithAbiExporter = {
   solidity: "0.8.24",
+  networks: {
+    hardhat: {},
+    sepolia: {
+      url: process.env.NETWORK_URL,
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+    },
+  },
   paths: {
-    sources: "./src/contracts",
+    sources: "./src/contracts"
   },
   abiExporter:  {
     path: './src/contracts/abis',
